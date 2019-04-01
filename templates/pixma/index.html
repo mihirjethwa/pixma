@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+
+<section class="slider-section">
+<div class="tp-banner-container">
+<div class="tp-banner">
+<ul>
+<li data-transition="fade" data-slotamount="1" data-masterspeed="500" data-thumb="upload/slider_new_01.jpg" data-saveperformance="off" data-title="Slide">
+<img src="{% static 'upload/background.jpg' %}" alt="fullslide1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+<div class="tp-caption slider_layer_01 text-center lft tp-resizeme" data-x="center" data-y="220" data-speed="1000" data-start="600" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="1000" style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;"><i class="fa fa-star"></i> Watch <strong>Pixma</strong> for free udemy courses
+</div>
+<div class="tp-caption slider_layer_02 text-center lft tp-resizeme" data-x="center" data-y="320" data-speed="1000" data-start="800" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="1000" style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">Great Place For Education, Learning Website<br> with provided courses!
+</div>
+<div class="tp-caption text-center lft tp-resizeme" data-x="center" data-y="390" data-speed="1000" data-start="800" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="1000" style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;"><a href="{% url 'courses' %}" class="btn btn-default">View Courses</a> <!--<a href="#" class="btn btn-primary">More info</a>-->
+</div>
+</li>
+
+
+
+</ul>
+</div>
+</div>
+</section>
+
+<section class="grey section" style="padding-bottom:0px">
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+  <div class="section-title text-center">
+<h4>Bestseller Courses</h4>
+<p>Listed Below Are Bestseller Courses</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="grey section">
+<div class="container">
+<div class="row course-list">
+  {% if bcourses %}
+  {% for course in bcourses %}
+  <div class="col-md-3 col-sm-6 col-xs-12 ">
+<div class="shop-item-list entry">
+<div class="">
+<a href="{{ course.id }}" </a>
+<img src="{{ course.image }}" alt="udemy course image">
+<div class="magnifier">
+</div>
+</div>
+<div class="shop-item-title clearfix">
+<h4><a href="{{ course.id }}">{{ course.name }}</a></h4>
+<p>{{ course.description|slice:":50" }}...</p>
+<div class="shopmeta">
+<span class="pull-left">{{ course.createdby }}</span>
+<div class="rating pull-right">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+{% else %}
+<div>
+  <p> No courses avilable </p>
+  </div>
+  {% endif %}
+</div>
+</div>
+</section>
+<section class="white section" style="padding-bottom:0px">
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+  <div class="section-title text-center">
+<h4>Highest Rated Courses</h4>
+<p>Listed Below Are Highest Rated Courses</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="white section">
+<div class="container">
+<div class="row course-list">
+  {% if hcourses %}
+  {% for course in hcourses %}
+  <div class="col-md-3 col-sm-6 col-xs-12 ">
+<div class="shop-item-list entry">
+<div class="">
+  <a href="{{ course.id }}" </a>
+<img src="{{ course.image }}" alt="udemy course image">
+<div class="magnifier">
+</div>
+</div>
+<div class="shop-item-title clearfix">
+<h4><a href="{{ course.id }}">{{ course.name }}</a></h4>
+<p>{{ course.description|slice:":50" }}...</p>
+<div class="shopmeta">
+<span class="pull-left">{{ course.createdby }}</span>
+<div class="rating pull-right">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+{% else %}
+<div>
+  <p> No courses avilable </p>
+  </div>
+  {% endif %}
+</div>
+</div>
+</section>
+
+<section class="section darkskin fullscreen paralbackground parallax" style="background-image:url({% static 'upload/background2.jpg' %})" data-img-width="1627" data-img-height="868" data-diff="100">
+<div class="overlay"></div>
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="section-title text-center">
+<h4>The Working Proces</h4>
+<p>We Shared Awesome Courses for You</p>
+</div>
+</div>
+</div>
+<div class="row service-center">
+<div class="col-md-4 col-sm-6">
+<div class="feature-list">
+<i class="fa fa-graduation-cap"></i>
+<p><strong>Pixma Courses</strong></p>
+<p>The courses available here are free of cost you just need to find the perfect course for yourself!!</p>
+</div>
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="feature-list">
+<i class="fa fa-shopping-cart"></i>
+<p><strong>Buying Courses</strong></p>
+<p>Try to search the course on PIXMA before buying a new course it may save some of your dollars.  </p>
+</div>
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="feature-list">
+<i class="fa fa-question"></i>
+<p><strong>Why this site?</strong></p>
+<p>This site provides you the courses which you can streame videos online. You can also download the videos!</p>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!--<iframe width="810" height="420" src="https://udemy-assets-on-demand.udemy.com/2018-04-22_14-12-00-795ce2ab71d1d954e9c0c7b67d5cc608/WebHD_720p.mp4?nva=20190328014524&token=0e498c24ff6b3b5509456" frameborder="0"  allowfullscreen></iframe>-->
+  {% endblock %}

@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+<section class="grey page-title">
+<div class="container">
+<div class="row">
+<div class="col-md-6 text-left">
+<h1>Course</h1>
+</div>
+<div class="col-md-6 text-right">
+<div class="bread">
+<ol class="breadcrumb">
+<li><a href="{% url 'index' %}">Home</a></li>
+<li><a href="{% url 'courses' %}">Courses</a></li>
+<li class="active">{{ course.name }}</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="white section">
+<div class="container">
+<div class="row">
+<div id="course-left-sidebar" class="col-md-4">
+<div class="course-image-widget">
+<img src="{{ course.image }}" alt="" class="img-responsive">
+</div>
+<div class="course-meta">
+<p class="course-category">Name : {{ course.name }}</a></p>
+<hr>
+<p class="course-instructors">Instructor : {{ course.createdby }}</a></p>
+<hr>
+<div class="rating">
+<p>Rating : {{ course.ratings }}</p>
+
+</div>
+<hr>
+<p class="course-student">Department :{{ course.department.d_name }} </p>
+<hr>
+<p class="course-time">Time : {{ course.time }} </p>
+<hr>
+<p class="course-prize">Availibilty : Full lifetime access</p>
+<hr>
+<p>Number of lectures: {{ course.nooflectures }}
+
+{% if course.is_bestseller %}
+<hr>
+<p>Tag: Bestseller </p>
+{% endif %}
+{% if course.is_highestrated %}
+<hr>
+<p>Tag: Highestrated </p>
+{% endif %}
+</div>
+<div class="course-button">
+<div class="btn btn-primary btn-block">START THIS COURSE</div>
+</div>
+</div>
+<div id="course-content" class="col-md-8">
+<div class="course-description">
+<small>Course Status: <span>In Progress</span> </small>
+<small>Course Price: <span>free</span> </small>
+<h1 class="course-title">{{ course.name }}</h1>
+<p>{{ course.description }}</p>
+</div>
+<div class="course-table">
+<h4>Course Lessons</h4>
+<table class="table">
+  {% if tablecontent %}
+<thead>
+<tr>
+<th>Type</th>
+<th>Lesson Title</th>
+
+<th>Availability</th>
+</tr>
+</thead>
+{% else %}
+<div class="">
+
+</div>
+{% endif %}
+<tbody>
+  {% if tablecontent %}
+    {% for table in tablecontent %}
+<tr>
+<td><i class="fa fa-play-circle"></i></td>
+<td><a href="{{ table.lecturelink }}">{{ table.title }} --> {{ table.lecture }}</a></td>
+
+<td><i class="fa fa-check"></i></td>
+</tr>
+{% endfor %}
+
+{% else %}
+<div class="">
+  <p>Lessons not available contact admin</p>
+</div>
+
+{% endif %}
+
+
+</tbody>
+</table>
+</div>
+
+
+</section>
+
+{% endblock %}

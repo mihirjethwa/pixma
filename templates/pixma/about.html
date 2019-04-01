@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+<section class="grey page-title">
+<div class="container">
+<div class="row">
+<div class="col-md-6 text-left">
+<h1>About Us</h1>
+</div>
+<div class="col-md-6 text-right">
+<div class="bread">
+<ol class="breadcrumb">
+<li><a href="{% url 'index' %}">Home</a></li>
+<li class="active">About Us</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="white section">
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<div class="media-element">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div class="carousel-inner" role="listbox">
+<div class="item active">
+<img src="{% static 'upload/pixmanamelogo.jpg' %}" alt="" class="img-responsive">
+</div>
+
+</div>
+<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+<span class="fa fa-angle-left" aria-hidden="true"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+<span class="fa fa-angle-right" aria-hidden="true"></span>
+<span class="sr-only">Next</span>
+</a>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="content-widget">
+<div class="widget-title">
+<h4>Welcome to PIXMA</h4>
+<hr>
+</div>
+<p>A free and simple course learning webapp, developed so that student or any person who wants to learn or watch the courses can easily browse the courses. This site may take some time to upload some of the courses so please be patient about it. You can contact the admin for any error, mistake or for addition of any new course. </p>
+<div class="row">
+<div class="col-md-6">
+<ul class="check">
+<li>Professional Teachers</li>
+<li>24/7 Online Course</li>
+<li>Works with All Devices</li>
+<li>Friendly User Panel</li>
+<li>Support Service</li>
+</ul>
+</div>
+</section>
+
+{% endblock %}
