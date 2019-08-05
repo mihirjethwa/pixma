@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['https://pixma.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'rest_framework',
     'pixma',
     'import_export',
     'django.contrib.admin',
@@ -41,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
