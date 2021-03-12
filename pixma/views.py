@@ -5,6 +5,10 @@ from tablib import Dataset
 from django.views.generic import View,TemplateView,ListView,DetailView
 from .models  import *
 from django.db.models import Q
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import *
 # Create your views here.
 def index(request):
     bcourses = Course.objects.filter(is_bestseller__exact=1)
@@ -64,3 +68,21 @@ def about(request):
 
 def contact(request):
     return render(request, 'pixma/contact.html')
+
+class DepartmentList(APIView):
+    def get(self, request):
+        department1 = Department.objects.all()
+        serializer = DepartmentSerializer(department1, many=True)
+        return Response(serializer.data)
+
+class CourseList(APIView):
+    def get(self, request):
+        course1 = Course.objects.all()
+        serializer = CourseSerializer(course1, many=True)
+        return Response(serializer.data)
+
+class TableContentList(APIView):
+    def get(self, request):
+        table1 = TableContent.objects.all()
+        serializer = TableContentSerializer(table1, many=True)
+        return Response(serializer.data)
